@@ -3,6 +3,13 @@ var userInput = document.querySelector(".user-input");
 var searchResults = document.querySelector("#search-results");
 var apiKey = "7dcb739e08380e5cd93a62e4c16f8444";
 
+var movieTitle = document.querySelector("#movie-title");
+var movieDescription = document.querySelector("#movie-description");
+var cast = document.querySelector("#featured-actors");
+var director = document.querySelector("#director")
+var poster = document.querySelector("#poster");
+var releaseDate = document.querySelector("#release-date");
+
 function handleFormSubmit(event) {
     event.preventDefault()
     var movie = userInput.value
@@ -21,6 +28,7 @@ function getMovieInfo(movie) {
         .then(function (data) {
             console.log(data);
 
+
             let searchResults = "";
             for (let i=0; i < 10 && i < data.results.length; i++) {
                 const result = data.results[i];
@@ -33,6 +41,7 @@ function getMovieInfo(movie) {
                 searchButtons[i].addEventListener("click", getMovieById);
             }
         })
+
 }
 
 function getMovieById(event){
