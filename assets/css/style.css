@@ -18,3 +18,8 @@ input {
 header {
     background-color: pink;
 }
+
+.search-button {
+    width: 100% !important;
+    color: red;
+}
