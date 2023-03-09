@@ -52,6 +52,9 @@ function getMovieById(event){
         })
         .then(function (data) {
             console.log(data);
+            poster.setAttribute("src", "https://image.tmdb.org/t/p/w500/" + data.poster_path)
+            movieTitle.textContent = data.original_title
+            movieDescription.textContent = data.overview
         })
 
     var thirdRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/credits?api_key=" + apiKey;
@@ -60,7 +63,10 @@ function getMovieById(event){
         return response.json()
         })
         .then(function (data) {
-        console.log(data)
+            console.log(data)
+            cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
+            director.textContent = "Director: " + data.crew[2].name
+
     })
 console.log(event.target)
 }
