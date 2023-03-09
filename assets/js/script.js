@@ -1,5 +1,6 @@
 var submitBtn = document.querySelector("#submit");
 var userInput = document.querySelector(".user-input");
+var searchResults = document.querySelector("#search-results");
 var apiKey = "7dcb739e08380e5cd93a62e4c16f8444";
 
 function handleFormSubmit(event) {
@@ -20,25 +21,39 @@ function getMovieInfo(movie) {
         .then(function (data) {
             console.log(data);
 
-            var newRequestUrl = "https://api.themoviedb.org/3/movie/" + data.results[0].id + "?api_key=" + apiKey;
-            fetch(newRequestUrl)
-                .then(function (response) {
-                    return response.json()
-                })
-                .then(function (data) {
-                    console.log(data);
-                })
+            let searchResults = "";
+            for (let i=0; i < 10 && i < data.results.length; i++) {
+                const result = data.results[i];
+                searchResults += `<button class="search-button" data-id="${result.id}">${result.title}</button>`;
+            }
+            document.getElementById("search-results").innerHTML = `${searchResults}`;
 
-            var thirdRequestUrl = "https://api.themoviedb.org/3/movie/" + data.results[0].id + "/credits?api_key=" + apiKey;
-            fetch(thirdRequestUrl)
-                .then(function (response) {
-                return response.json()
-                })
-                .then(function (data) {
-                console.log(data)
-            })
-            })
+            var searchButtons = document.querySelectorAll(".search-button");
+            for (let i=0; i < searchButtons.length; i++) {
+                searchButtons[i].addEventListener("click", getMovieById);
+            }
+        })
 }
 
+function getMovieById(event){
+    var newRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "?api_key=" + apiKey;
+    fetch(newRequestUrl)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data);
+        })
+
+    var thirdRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/credits?api_key=" + apiKey;
+    fetch(thirdRequestUrl)
+        .then(function (response) {
+        return response.json()
+        })
+        .then(function (data) {
+        console.log(data)
+    })
+console.log(event.target)
+}
 
 submitBtn.addEventListener("click", handleFormSubmit);
