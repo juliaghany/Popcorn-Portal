@@ -6,3 +6,5 @@
 -We built this project to practice writing HTML, CSS, and JavaScript code from scratch. We also built this project to practice using GitHub to work on a project with multiple collaborators, and working with multiple third-party and server-side APIs. 
 
 -It offers a quick and easy way of finding information on movies and creating a list of movies that the user would like to watch in the future after learning. 
+
+# Enrique Was Here
