@@ -6,40 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Popcorn Portal</title>
 </head>
 
 <body>
     <header>
-        <h1>Popcorn Portal</h1>
-        <a href="savedmovies.html" id="saved-movies">Your Saved Movies</a>
+        
+        <h1><img src="assets/images/Popcorn Portal Logo.png">Welcome To The Popcorn Portal<img clas="logo" src="assets/images/Popcorn Portal Logo.png"></h1>
+        <!-- <a href="savedmovies.html" id="saved-movies">Your Saved Movies</a> -->
     </header>
     <main class="container">
         <div class="row">
             <aside class="col-sm-12 col-lg-3">
                 <form id="user-form">
-                    <label><strong>Choose a movie:</strong></label>
+                    <label><strong>Enter Popcorn Portal:</strong></label>
                     <input type="text" placeholder="Enter Movie Name" class="user-input" />
-                    <button id="submit" class="btn">Search</button>
+                    <button id="submit" class="user-search-btn">Search</button>
                 </form>
                 <hr>
                 </hr>
                 <div id="search-results"></div>
             </aside>
             <div class="col-sm-12 col-lg-9">
-                <div id="current-movie">
-                    <h3 id="movie-title">Movie Name</h3>
-                    <p id="release-date"></p>
+                <div id="current-movie" class="row">
+                    <h2 id="movie-title"></h2>
+                    <!-- <p id="release-date"></p> -->
                     <img id="poster">
-                    <p id="rating">Rating</p>
-                    <p id="meta-crtic-rating">Reviews</p>
-                    <p id="director">Director Name</p>
-                    <p id="featured-actors">Actors</p>
-                    <p id="movie-description">Description</p>
+                    <p id="movie-description"></p>
+                    <!-- <p id="rating">Rating</p>
+                    <p id="meta-crtic-rating">Reviews</p> -->
+                    <p id="featured-actors"></p>
+                    <p id="director"></p>
+                    <button style="display: none" class="save-btn">Save Movie</button>
+                    <!-- <hr></hr> -->
                 </div>
                 <div id="stream-container">
-                    <h3>Watch now!</h3>
+                    <h3></h3>
                     <!-- insert logos here through js -->
                 </div>
     </main>
