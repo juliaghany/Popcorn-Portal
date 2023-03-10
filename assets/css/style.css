@@ -3,6 +3,12 @@ header {
     padding: 10px;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
 h1 {
     font-family: 'Tilt Prism', cursive;
     font-size: 70px;
@@ -52,18 +58,27 @@ h1>img {
     color: black;
     font-weight: bold;
     padding: 5px;
-    float: left;
     width: 50%;
+    margin-top: 30px;
+    align-items: center;
 }
 
 #current-movie>.poster {
     height: 650px;
     width: 600px;
-    padding: 30px;
+    padding-top: 30px;
+    border: solid gold;
+}
+
+#logo-container > #streaming {
+    margin-top: 30px;
+    align-items: center;
 }
 
 #current-movie {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 #movie-title {
