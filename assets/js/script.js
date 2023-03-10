@@ -10,6 +10,8 @@ var director = document.querySelector("#director")
 var poster = document.querySelector("#poster");
 var releaseDate = document.querySelector("#release-date");
 var saveBtn = document.querySelector(".save-btn");
+var stream = document.querySelector("#streaming");
+var logoContainer = document.querySelector("#logo-container");
 
 function handleFormSubmit(event) {
     event.preventDefault()
@@ -31,21 +33,21 @@ function getMovieInfo(movie) {
 
 
             let searchResults = "";
-            for (let i=0; i < 10 && i < data.results.length; i++) {
+            for (let i = 0; i < 10 && i < data.results.length; i++) {
                 const result = data.results[i];
                 searchResults += `<button class="search-button" data-id="${result.id}">${result.title}</button>`;
             }
             document.getElementById("search-results").innerHTML = `${searchResults}`;
 
             var searchButtons = document.querySelectorAll(".search-button");
-            for (let i=0; i < searchButtons.length; i++) {
+            for (let i = 0; i < searchButtons.length; i++) {
                 searchButtons[i].addEventListener("click", getMovieById);
             }
         })
 
 }
 
-function getMovieById(event){
+function getMovieById(event) {
     var newRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "?api_key=" + apiKey;
     fetch(newRequestUrl)
         .then(function (response) {
@@ -64,31 +66,46 @@ function getMovieById(event){
     var thirdRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/credits?api_key=" + apiKey;
     fetch(thirdRequestUrl)
         .then(function (response) {
-        return response.json()
+            return response.json()
         })
         .then(function (data) {
             console.log(data)
             cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
-            director.textContent = "Director: " + data.crew[2].name    
+            director.textContent = "Director: " + data.crew[2].name
             saveBtn.style.display = "block"
         })
-      
+
 
     var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + event.target.textContent;
     fetch(streamingRequestUrl)
         .then(function (response) {
-        return response.json()
+            return response.json()
         })
         .then(function (data) {
             console.log(data)
+
+            for (var i = 0; i < data.results[0].locations.length; i++) {
+                var logo = document.createElement("img");
+                var link = document.createElement("a");
+                logo.setAttribute("src", data.results[0].locations[i].icon);
+                logo.setAttribute("id", "streaming")
+                link.setAttribute("href", data.results[0].locations[i].url);
+                link.appendChild(logo);
+                logoContainer.appendChild(link);
+
+            }
+
+
+
+
         })
-        
 
-           
-    
-    
 
-console.log(event.target)
+
+
+
+
+    console.log(event.target)
 }
 
 function saveToStorage() {
@@ -97,7 +114,7 @@ function saveToStorage() {
     savedMovies.push(title)
     localStorage.setItem("movie", JSON.stringify(savedMovies))
     window.location.href = "savedmovies.html";
-    
+
 
     console.log(title);
 }
