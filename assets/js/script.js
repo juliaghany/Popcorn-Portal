@@ -9,6 +9,7 @@ var cast = document.querySelector("#featured-actors");
 var director = document.querySelector("#director")
 var poster = document.querySelector("#poster");
 var releaseDate = document.querySelector("#release-date");
+var saveBtn = document.querySelector(".save-btn");
 
 function handleFormSubmit(event) {
     event.preventDefault()
@@ -52,9 +53,12 @@ function getMovieById(event){
         })
         .then(function (data) {
             console.log(data);
-            poster.setAttribute("src", "https://image.tmdb.org/t/p/w500/" + data.poster_path)
+            poster.setAttribute("src", "https://image.tmdb.org/t/p/w400/" + data.poster_path)
+            poster.setAttribute("class", "poster");
             movieTitle.textContent = data.original_title
             movieDescription.textContent = data.overview
+            saveBtn.setAttribute("data-title", data.original_title);
+
         })
 
     var thirdRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/credits?api_key=" + apiKey;
@@ -66,7 +70,9 @@ function getMovieById(event){
             console.log(data)
             cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
             director.textContent = "Director: " + data.crew[2].name    
+            saveBtn.style.display = "block"
         })
+      
 
     var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + event.target.textContent;
     fetch(streamingRequestUrl)
@@ -77,7 +83,24 @@ function getMovieById(event){
             console.log(data)
         })
         
+
+           
+    
+    
+
 console.log(event.target)
 }
 
+function saveToStorage() {
+    var title = saveBtn.getAttribute("data-title")
+    var savedMovies = JSON.parse(localStorage.getItem("movie")) || []
+    savedMovies.push(title)
+    localStorage.setItem("movie", JSON.stringify(savedMovies))
+    window.location.href = "savedmovies.html";
+    
+
+    console.log(title);
+}
+
+saveBtn.addEventListener("click", saveToStorage);
 submitBtn.addEventListener("click", handleFormSubmit);
