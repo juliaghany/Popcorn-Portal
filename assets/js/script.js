@@ -65,9 +65,18 @@ function getMovieById(event){
         .then(function (data) {
             console.log(data)
             cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
-            director.textContent = "Director: " + data.crew[2].name
+            director.textContent = "Director: " + data.crew[2].name    
+        })
 
-    })
+    var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + event.target.textContent;
+    fetch(streamingRequestUrl)
+        .then(function (response) {
+        return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+        })
+        
 console.log(event.target)
 }
 
