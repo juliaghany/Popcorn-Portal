@@ -83,21 +83,21 @@ function getMovieById(event) {
         })
         .then(function (data) {
             console.log(data)
-
+            
             for (var i = 0; i < data.results[0].locations.length; i++) {
-                var logo = document.createElement("img");
-                var link = document.createElement("a");
-                logo.setAttribute("src", data.results[0].locations[i].icon);
-                logo.setAttribute("id", "streaming")
-                link.setAttribute("href", data.results[0].locations[i].url);
-                link.appendChild(logo);
-                logoContainer.appendChild(link);
+                    var logo = document.createElement("img");
+                    var link = document.createElement("a");
+                    logo.setAttribute("src", data.results[0].locations[i].icon);
+                    logo.setAttribute("id", "streaming")
+                    link.setAttribute("href", data.results[0].locations[i].url);
+                    link.appendChild(logo);
+                    logoContainer.appendChild(link);
 
-            }
+                    
 
-
-
-
+                }
+          
+            // Activity 10 Module 5 for removing things from a list
         })
 
 
@@ -113,11 +113,16 @@ function saveToStorage() {
     var savedMovies = JSON.parse(localStorage.getItem("movie")) || []
     savedMovies.push(title)
     localStorage.setItem("movie", JSON.stringify(savedMovies))
-    window.location.href = "savedmovies.html";
+
 
 
     console.log(title);
 }
 
+function clearSearch() {
+    userInput.value = ""
+}
+
 saveBtn.addEventListener("click", saveToStorage);
 submitBtn.addEventListener("click", handleFormSubmit);
+submitBtn.addEventListener("click", clearSearch);
