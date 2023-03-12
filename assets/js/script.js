@@ -71,7 +71,13 @@ function getMovieById(event) {
         .then(function (data) {
             console.log(data)
             cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
-            director.textContent = "Director: " + data.crew[2].name
+            
+            var directorObject = data.crew.find(function(crewMembers) {
+                return crewMembers.job === "Director";
+            });
+            var directorName = directorObject ? directorObject.name : "";
+            director.textContent = "Director: " + directorName;
+
             saveBtn.style.display = "block"
         })
 
@@ -84,6 +90,8 @@ function getMovieById(event) {
         .then(function (data) {
             console.log(data)
 
+            logoContainer.innerHTML = "";
+
             for (var i = 0; i < data.results[0].locations.length; i++) {
                 var logo = document.createElement("img");
                 var link = document.createElement("a");
@@ -92,18 +100,8 @@ function getMovieById(event) {
                 link.setAttribute("href", data.results[0].locations[i].url);
                 link.appendChild(logo);
                 logoContainer.appendChild(link);
-
             }
-
-
-
-
         })
-
-
-
-
-
 
     console.log(event.target)
 }
