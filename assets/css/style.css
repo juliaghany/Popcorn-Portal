@@ -1,12 +1,6 @@
 header {
     background-color: black;
-    padding: 10px;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
+    /* margin-bottom: px; */
 }
 
 h1 {
@@ -16,12 +10,38 @@ h1 {
     text-align: center;
 }
 
+h1>img {
+    height: 200px;
+    width: 200px;
+}
+
+header>a {
+    font-size: 20px;
+    display: block;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 600;
+}
+
 form {
-    margin-top: 15px;
+    margin-top: 50px;
 }
 
 label {
-    font-size: 30px;
+    font-size: 28px;
+    color: white;
 }
 
 input {
@@ -29,68 +49,87 @@ input {
     padding: 5px;
 }
 
-h1>img {
-    height: 200px;
-    width: 200px;
-}
 
 .user-search-btn {
     margin-top: 10px;
     background-color: gold;
     width: 100%;
     color: black;
-    font-weight: bold;
-    /* border-radius: 4rem; */
+    font-weight: 600;
 }
 
 .search-button {
     width: 100%;
     background-color: gold;
     color: black;
-    font-weight: bold;
+    font-weight: 600;
     padding: 5px;
     margin-bottom: 10px;
-    /* border-radius: 2rem; */
 }
 
 .save-btn {
     background-color: gold;
     color: black;
-    font-weight: bold;
+    font-weight: 600;
     padding: 5px;
-    width: 50%;
+    width: 60%;
     margin-top: 30px;
-    align-items: center;
 }
 
 #current-movie>.poster {
     height: 650px;
     width: 600px;
-    padding-top: 30px;
-    border: solid gold;
+    margin-top: 30px;
 }
 
-#logo-container > #streaming {
+#logo-container>#streaming {
     margin-top: 30px;
-    align-items: center;
 }
 
 #current-movie {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-}
-
-#movie-title {
-    margin-top: 15px;
-}
-
-h2 {
-    font-size: 45px;
+    margin-top: 50px;
+    justify-content: center;
 }
 
 p {
     font-size: 20px;
-    padding-top: 10px;
-    font-weight: bold;
+    padding-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* saved movies styling */
+
+ul {
+    list-style-type: none;
+}
+
+#show-movies>li {
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+}
+
+#saved-movies {
+ color: gold;
+ font-weight: 600;
+ margin-bottom: 5px;
+ text-align: center;
+}
+
+a:hover {
+    color: black;
+}
+
+.btn {
+ background-color: gold;
+ color: black;
+ font-weight: 500;
+ padding: 5px;
+ font-size: 15px;
+ cursor: pointer;
+}
+
+#saved-movies-container {
+    text-align: center;
 }
