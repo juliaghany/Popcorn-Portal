@@ -70,13 +70,13 @@ function getMovieById(event) {
         })
         .then(function (data) {
             console.log(data)
-            cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
+            cast.innerHTML = "<strong>Featured Cast: </strong>" + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
             
             var directorObject = data.crew.find(function(crewMembers) {
                 return crewMembers.job === "Director";
             });
             var directorName = directorObject ? directorObject.name : "";
-            director.textContent = "Director: " + directorName;
+            director.innerHTML = "<strong>Director: </strong>" + directorName;
 
             saveBtn.style.display = "block"
         })
@@ -96,11 +96,16 @@ function getMovieById(event) {
             for (var i = 0; i < data.results[0].locations.length; i++) {
                 var logo = document.createElement("img");
                 var link = document.createElement("a");
+                var logoBtn = document.createElement("button");
+                logoBtn.setAttribute("class", "btn");
                 logo.setAttribute("src", data.results[0].locations[i].icon);
                 logo.setAttribute("id", "streaming")
                 link.setAttribute("href", data.results[0].locations[i].url);
+                // made it to where you open a new tab when you click on the logo for the streaming platform
+                link.setAttribute("target", "_blank");
                 link.appendChild(logo);
-                logoContainer.appendChild(link);
+                logoBtn.appendChild(link);
+                logoContainer.appendChild(logoBtn);
             }
 
           
