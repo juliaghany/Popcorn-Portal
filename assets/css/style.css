@@ -11,8 +11,8 @@ h1 {
 }
 
 h1>img {
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
 }
 
 header>a {
@@ -78,7 +78,7 @@ input {
 
 #current-movie>.poster {
     height: 650px;
-    width: 600px;
+    width: 500px;
     margin-top: 30px;
 }
 
@@ -132,4 +132,30 @@ a:hover {
 
 #saved-movies-container {
     text-align: center;
+}
+
+#cast strong {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+.movie-recommendation {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    clear: left;
+    text-align: center;
+    width: 200px;
+}
+
+.movie-recommendation img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.movie-recommendation p {
+    margin: 0;
+    font-size: 14px;
 }

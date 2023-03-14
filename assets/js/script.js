@@ -12,6 +12,7 @@ var releaseDate = document.querySelector("#release-date");
 var saveBtn = document.querySelector(".save-btn");
 var stream = document.querySelector("#streaming");
 var logoContainer = document.querySelector("#logo-container");
+var recommendationsHeader = document.querySelector('#recommendations-header');
 
 function handleFormSubmit(event) {
     event.preventDefault()
@@ -70,7 +71,7 @@ function getMovieById(event) {
         })
         .then(function (data) {
             console.log(data)
-            cast.textContent = "Featured Cast: " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
+            cast.innerHTML = "<strong>Featured Cast:</strong> " + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
             
             var directorObject = data.crew.find(function(crewMembers) {
                 return crewMembers.job === "Director";
@@ -81,6 +82,35 @@ function getMovieById(event) {
             saveBtn.style.display = "block"
         })
 
+    var recommendationsUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/recommendations?api_key=" + apiKey;
+    fetch(recommendationsUrl)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+            var recommendationsHtml = '';
+            for (var i = 0; i < 5 && i < data.results.length; i++) {
+                const result = data.results[i];
+            recommendationsHtml += `
+                <div class="movie-recommendation" data-id="${result.id}">
+                    <img src="https://image.tmdb.org/t/p/w300/${result.poster_path}" alt="${result.title}">
+                    <p>${result.title}</p>
+                </div>`;
+    }
+    recommendationsHeader.innerHTML = "Recommended Movies:";
+    recommendations.innerHTML = recommendationsHtml;
+
+    var recommendationDivs = document.querySelectorAll('.movie-recommendation');
+    recommendationDivs.forEach(function(div) {
+        div.addEventListener('click', function() {
+            getMovieById({target: {dataset: {id: div.dataset.id}}});
+            var currentMovieDiv = document.getElementById("current-movie");
+            currentMovieDiv.scrollIntoView();
+        });
+    });
+        })
+
 
     var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + event.target.textContent;
     fetch(streamingRequestUrl)
@@ -89,7 +119,6 @@ function getMovieById(event) {
         })
         .then(function (data) {
             console.log(data)
-
 
             logoContainer.innerHTML = "";
 
@@ -102,10 +131,7 @@ function getMovieById(event) {
                 link.appendChild(logo);
                 logoContainer.appendChild(link);
             }
-
-          
             // Activity 10 Module 5 for removing things from a list
-
         })
 
     console.log(event.target)
