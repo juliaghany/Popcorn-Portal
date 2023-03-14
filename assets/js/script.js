@@ -1,3 +1,5 @@
+// assign variables 
+
 var submitBtn = document.querySelector("#submit");
 var userInput = document.querySelector(".user-input");
 var searchResults = document.querySelector("#search-results");
@@ -6,13 +8,14 @@ var apiKey = "7dcb739e08380e5cd93a62e4c16f8444";
 var movieTitle = document.querySelector("#movie-title");
 var movieDescription = document.querySelector("#movie-description");
 var cast = document.querySelector("#featured-actors");
-var director = document.querySelector("#director")
+var director = document.querySelector("#director");
 var poster = document.querySelector("#poster");
 var releaseDate = document.querySelector("#release-date");
 var saveBtn = document.querySelector(".save-btn");
 var stream = document.querySelector("#streaming");
 var logoContainer = document.querySelector("#logo-container");
 var recommendationsHeader = document.querySelector('#recommendations-header');
+
 
 function handleFormSubmit(event) {
     event.preventDefault()
@@ -73,8 +76,8 @@ function getMovieById(event) {
             console.log(data)
 
             cast.innerHTML = "<strong>Featured Cast: </strong>" + data.cast[0].name + ", " + data.cast[1].name + ", " + data.cast[2].name + ", " + data.cast[3].name + ", " + data.cast[4].name
-            
-            var directorObject = data.crew.find(function(crewMembers) {
+
+            var directorObject = data.crew.find(function (crewMembers) {
                 return crewMembers.job === "Director";
             });
             var directorName = directorObject ? directorObject.name : "";
@@ -93,23 +96,23 @@ function getMovieById(event) {
             var recommendationsHtml = '';
             for (var i = 0; i < 5 && i < data.results.length; i++) {
                 const result = data.results[i];
-            recommendationsHtml += `
+                recommendationsHtml += `
                 <div class="movie-recommendation" data-id="${result.id}">
                     <img src="https://image.tmdb.org/t/p/w300/${result.poster_path}" alt="${result.title}">
                     <p>${result.title}</p>
                 </div>`;
-    }
-    recommendationsHeader.innerHTML = "Recommended Movies:";
-    recommendations.innerHTML = recommendationsHtml;
+            }
+            recommendationsHeader.innerHTML = "<strong>Recommended Movies:</strong>";
+            recommendations.innerHTML = recommendationsHtml;
 
-    var recommendationDivs = document.querySelectorAll('.movie-recommendation');
-    recommendationDivs.forEach(function(div) {
-        div.addEventListener('click', function() {
-            getMovieById({target: {dataset: {id: div.dataset.id}}});
-            var currentMovieDiv = document.getElementById("current-movie");
-            currentMovieDiv.scrollIntoView();
-        });
-    });
+            var recommendationDivs = document.querySelectorAll('.movie-recommendation');
+            recommendationDivs.forEach(function (div) {
+                div.addEventListener('click', function () {
+                    getMovieById({ target: { dataset: { id: div.dataset.id } } });
+                    var currentMovieDiv = document.getElementById("current-movie");
+                    currentMovieDiv.scrollIntoView();
+                });
+            });
         })
 
 
@@ -123,6 +126,8 @@ function getMovieById(event) {
 
             logoContainer.innerHTML = "";
 
+            // creates button with logo and link for each streaming platform that has the movie the user searched 
+
             for (var i = 0; i < data.results[0].locations.length; i++) {
                 var logo = document.createElement("img");
                 var link = document.createElement("a");
@@ -131,13 +136,11 @@ function getMovieById(event) {
                 logo.setAttribute("src", data.results[0].locations[i].icon);
                 logo.setAttribute("id", "streaming")
                 link.setAttribute("href", data.results[0].locations[i].url);
-                // made it to where you open a new tab when you click on the logo for the streaming platform
                 link.setAttribute("target", "_blank");
                 link.appendChild(logo);
                 logoBtn.appendChild(link);
                 logoContainer.appendChild(logoBtn);
             }
-            // Activity 10 Module 5 for removing things from a list
         })
 
     console.log(event.target)
@@ -154,9 +157,13 @@ function saveToStorage() {
     console.log(title);
 }
 
+// clears user input after user searches for a movie
+
 function clearSearch() {
     userInput.value = ""
 }
+
+// add event listeners 
 
 saveBtn.addEventListener("click", saveToStorage);
 submitBtn.addEventListener("click", handleFormSubmit);
