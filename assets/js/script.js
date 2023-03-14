@@ -16,6 +16,7 @@ var stream = document.querySelector("#streaming");
 var logoContainer = document.querySelector("#logo-container");
 var recommendationsHeader = document.querySelector('#recommendations-header');
 var recommendations = document.querySelector('#recommendations');
+var lineBreak = document.querySelector("#break");
 
 
 function handleFormSubmit(event) {
@@ -83,7 +84,9 @@ function getMovieById(event) {
             var directorName = directorObject ? directorObject.name : "";
             director.innerHTML = "<strong>Director: </strong>" + directorName;
 
-            saveBtn.style.display = "block"
+            saveBtn.style.display = "block";
+            lineBreak.style.display = "block";
+
         })
 
     var recommendationsUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/recommendations?api_key=" + apiKey;
