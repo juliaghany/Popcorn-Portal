@@ -108,15 +108,15 @@ function getMovieById(event) {
             var recommendationDivs = document.querySelectorAll('.movie-recommendation');
             recommendationDivs.forEach(function (div) {
                 div.addEventListener('click', function () {
-                    getMovieById({ target: { dataset: { id: div.dataset.id } } });
-                    var currentMovieDiv = document.getElementById("current-movie");
-                    currentMovieDiv.scrollIntoView();
+                  getMovieById({ target: { dataset: { id: div.dataset.id } }, title: div.querySelector('p').textContent });
+                  var currentMovieDiv = document.getElementById("current-movie");
+                  currentMovieDiv.scrollIntoView();
                 });
-            });
+              });
         })
 
-
-    var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + event.target.textContent;
+    var searchTerm = event.title || event.target.textContent || data.original_title;
+    var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + searchTerm;
     fetch(streamingRequestUrl)
         .then(function (response) {
             return response.json()
