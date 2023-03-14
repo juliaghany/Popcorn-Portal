@@ -1,29 +1,29 @@
 header {
-    background-color: black;
+  background-color: black;
 }
 
 h1 {
-    font-family: 'Tilt Prism', cursive;
-    font-size: 70px;
-    color: gold;
-    text-align: center;
+  font-family: 'Tilt Prism', cursive;
+  font-size: 70px;
+  color: gold;
+  text-align: center;
 }
 
 header h1 img {
-    height: 10vw;
-    width: 10vw;
-    max-height: 150px;
-    max-width: 150px;
+  height: 10vw;
+  width: 10vw;
+  max-height: 150px;
+  max-width: 150px;
 }
 
 header h1 {
-    font-size: 5vw;
+  font-size: 5vw;
 }
 
 header a {
-    font-size: 1.5vw;
-    justify-content: center;
-    display: block;
+  font-size: 1.5vw;
+  justify-content: center;
+  display: block;
 }
 
 @media (max-width: 600px) {
@@ -157,6 +157,17 @@ ul {
 a:hover {
     color: black;
 }
+
+
+.btn {
+ background-color: gold;
+ color: black;
+ font-weight: 500;
+ padding: 5px;
+ font-size: 15px;
+ cursor: pointer;
+ margin-left: 15px;
+} 
 
 #saved-movies-container {
     text-align: center;

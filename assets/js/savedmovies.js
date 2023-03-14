@@ -21,6 +21,7 @@ function loadStorage() {
         button.innerHTML = "Remove";
         li.appendChild(button);
         button.dataset.index = i;
+        }
     }
 }
 
