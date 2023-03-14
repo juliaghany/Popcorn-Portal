@@ -10,12 +10,26 @@ function loadStorage() {
         return
     }
     for (let i = 0; i < savedMovies.length; i++) {
-        var movie = savedMovies[i]
+        var movie = savedMovies[i];
         var li = document.createElement("li");
-        li.textContent = movie
+        li.textContent = movie;
+        var removeButton = document.createElement("button");
+        removeButton.textContent = "X";
+        removeButton.dataset.index = i;
+        li.appendChild(removeButton);
         showMovies.appendChild(li);
     }
 }
+
+showMovies.addEventListener("click", function(event) {
+    if (event.target.matches("button[data-index]")) {
+        var index = event.target.dataset.index;
+        var savedMovies = JSON.parse(localStorage.getItem("movie"));
+        savedMovies.splice(index, 1);
+        localStorage.setItem("movie", JSON.stringify(savedMovies));
+        loadStorage();
+    }
+});
 
 clearOrReturn.addEventListener("click", function (event) {
     var target = event.target
