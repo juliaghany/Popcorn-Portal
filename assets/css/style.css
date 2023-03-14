@@ -1,6 +1,5 @@
 header {
     background-color: black;
-    /* margin-bottom: px; */
 }
 
 h1 {
@@ -11,8 +10,8 @@ h1 {
 }
 
 h1>img {
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
 }
 
 header>a {
@@ -26,13 +25,6 @@ body {
     padding: 0;
     background-color: black;
     font-family: 'Montserrat', sans-serif;
-}
-
-h2 {
-    color: white;
-    text-align: center;
-    font-size: 45px;
-    font-weight: 600;
 }
 
 form {
@@ -49,9 +41,17 @@ input {
     padding: 5px;
 }
 
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 600;
+}
+
 
 .user-search-btn {
     margin-top: 10px;
+    margin-bottom: 20px;
     background-color: gold;
     width: 100%;
     color: black;
@@ -76,6 +76,16 @@ input {
     margin-top: 30px;
 }
 
+.btn {
+    background-color: gold;
+    color: black;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 15px;
+    margin: 20px;
+    cursor: pointer;
+}
+
 #current-movie>.poster {
     height: 650px;
     width: 600px;
@@ -84,7 +94,14 @@ input {
 
 #logo-container>#streaming {
     margin-top: 30px;
+    background-color: gold;
+    
 }
+
+/* #logo-container {
+    background-color: gold;
+    width: 60%;
+} */
 
 #current-movie {
     margin-top: 50px;
@@ -97,8 +114,6 @@ p {
     color: white;
     text-align: center;
 }
-
-/* saved movies styling */
 
 ul {
     list-style-type: none;
@@ -119,15 +134,6 @@ ul {
 
 a:hover {
     color: black;
-}
-
-.btn {
- background-color: gold;
- color: black;
- font-weight: 500;
- padding: 5px;
- font-size: 15px;
- cursor: pointer;
 }
 
 #saved-movies-container {
