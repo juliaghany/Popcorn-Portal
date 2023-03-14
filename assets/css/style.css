@@ -9,15 +9,21 @@ h1 {
     text-align: center;
 }
 
-h1>img {
-    height: 180px;
-    width: 180px;
+header h1 img {
+    height: 10vw;
+    width: 10vw;
+    max-height: 150px;
+    max-width: 150px;
 }
-
-header>a {
-    font-size: 20px;
-    display: block;
+  
+header h1 {
+    font-size: 5vw;
+}
+  
+header a {
+    font-size: 1.5vw;
     justify-content: center;
+    display: block;
 }
 
 body {
@@ -159,3 +165,4 @@ a:hover {
 .movie-recommendation p {
     margin: 0;
     font-size: 14px;
+}

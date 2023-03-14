@@ -13,6 +13,7 @@ var saveBtn = document.querySelector(".save-btn");
 var stream = document.querySelector("#streaming");
 var logoContainer = document.querySelector("#logo-container");
 var recommendationsHeader = document.querySelector('#recommendations-header');
+var recommendations = document.querySelector('#recommendations');
 
 function handleFormSubmit(event) {
     event.preventDefault()
@@ -20,7 +21,6 @@ function handleFormSubmit(event) {
     if (userInput) {
         getMovieInfo(movie)
     }
-
 }
 
 function getMovieInfo(movie) {
