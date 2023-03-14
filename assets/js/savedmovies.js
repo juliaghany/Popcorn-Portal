@@ -10,16 +10,15 @@ function loadStorage() {
         return
     }
     for (let i = 0; i < savedMovies.length; i++) {
-        var movie = savedMovies[i]
+        var movie = savedMovies[i];
         var li = document.createElement("li");
-        li.textContent = movie
+        li.textContent = movie;
         showMovies.appendChild(li);
         var button = document.createElement('button');
         button.setAttribute("class", "btn");
         button.innerHTML = "Remove";
         li.appendChild(button);
         button.dataset.index = i;
-        
         }
     }
 
@@ -32,9 +31,6 @@ showMovies.addEventListener("click", function(event) {
         loadStorage();
     }
 });
-
-
-
 
 clearOrReturn.addEventListener("click", function (event) {
     var target = event.target
