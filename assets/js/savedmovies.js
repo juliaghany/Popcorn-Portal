@@ -1,4 +1,3 @@
-
 var showMovies = document.querySelector("#show-movies");
 var clearBtn = document.querySelector("#clear-movies")
 var clearOrReturn = document.querySelector("#clear-or-return")
@@ -9,6 +8,9 @@ function loadStorage() {
     if (!savedMovies || !savedMovies.length) {
         return
     }
+
+    // for loop creating list items for saved movie titles in saved movies list 
+
     for (let i = 0; i < savedMovies.length; i++) {
         var movie = savedMovies[i];
         var li = document.createElement("li");
@@ -21,8 +23,9 @@ function loadStorage() {
         button.dataset.index = i;
         }
     }
+}
 
-showMovies.addEventListener("click", function(event) {
+showMovies.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
         var index = event.target.dataset.index;
         var savedMovies = JSON.parse(localStorage.getItem("movie"));
@@ -42,4 +45,3 @@ clearOrReturn.addEventListener("click", function (event) {
 )
 
 loadStorage();
-
