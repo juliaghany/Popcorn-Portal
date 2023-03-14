@@ -21,27 +21,25 @@ function loadStorage() {
         button.innerHTML = "Remove";
         li.appendChild(button);
         button.dataset.index = i;
+    }
+
+    showMovies.addEventListener("click", function (event) {
+        if (event.target.matches("button")) {
+            var index = event.target.dataset.index;
+            var savedMovies = JSON.parse(localStorage.getItem("movie"));
+            savedMovies.splice(index, 1);
+            localStorage.setItem("movie", JSON.stringify(savedMovies));
+            loadStorage();
+        }
+    });
+
+    clearOrReturn.addEventListener("click", function (event) {
+        var target = event.target
+        if (target.matches(".clear-btn")) {
+            localStorage.clear()
+            showMovies.innerHTML = ""
         }
     }
-}
+    )
 
-showMovies.addEventListener("click", function (event) {
-    if (event.target.matches("button")) {
-        var index = event.target.dataset.index;
-        var savedMovies = JSON.parse(localStorage.getItem("movie"));
-        savedMovies.splice(index, 1);
-        localStorage.setItem("movie", JSON.stringify(savedMovies));
-        loadStorage();
-    }
-});
-
-clearOrReturn.addEventListener("click", function (event) {
-    var target = event.target
-    if (target.matches(".clear-btn")) {
-        localStorage.clear()
-        showMovies.innerHTML = ""
-    }
-}
-)
-
-loadStorage();
+    loadStorage();
