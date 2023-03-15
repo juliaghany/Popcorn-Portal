@@ -1,24 +1,44 @@
 header {
-    background-color: black;
-    /* margin-bottom: px; */
+  background-color: black;
 }
 
 h1 {
-    font-family: 'Tilt Prism', cursive;
-    font-size: 70px;
-    color: gold;
-    text-align: center;
+  font-family: 'Tilt Prism', cursive;
+  font-size: 70px;
+  color: gold;
+  text-align: center;
 }
 
-h1>img {
-    height: 200px;
-    width: 200px;
+header h1 img {
+  height: 10vw;
+  width: 10vw;
+  max-height: 150px;
+  max-width: 150px;
 }
 
-header>a {
-    font-size: 20px;
-    display: block;
-    justify-content: center;
+header h1 {
+  font-size: 5vw;
+}
+
+header a {
+  font-size: 1.5vw;
+  justify-content: center;
+  display: block;
+}
+
+@media (max-width: 600px) {
+    header h1 img {
+        height: 75px;
+        width: 75px;
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    header a {
+        font-size: 20px;
+    }
 }
 
 body {
@@ -26,13 +46,6 @@ body {
     padding: 0;
     background-color: black;
     font-family: 'Montserrat', sans-serif;
-}
-
-h2 {
-    color: white;
-    text-align: center;
-    font-size: 45px;
-    font-weight: 600;
 }
 
 form {
@@ -49,9 +62,23 @@ input {
     padding: 5px;
 }
 
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
 
 .user-search-btn {
     margin-top: 10px;
+    margin-bottom: 20px;
     background-color: gold;
     width: 100%;
     color: black;
@@ -76,14 +103,26 @@ input {
     margin-top: 30px;
 }
 
+.btn {
+    background-color: gold;
+    color: black;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 15px;
+    margin: 20px;
+    cursor: pointer;
+}
+
 #current-movie>.poster {
     height: 650px;
-    width: 600px;
+    width: 500px;
     margin-top: 30px;
 }
 
 #logo-container>#streaming {
     margin-top: 30px;
+    background-color: gold;
+    
 }
 
 #current-movie {
@@ -98,16 +137,14 @@ p {
     text-align: center;
 }
 
-/* saved movies styling */
-
 ul {
     list-style-type: none;
 }
 
 #show-movies>li {
     color: white;
-    font-size: 30px;
-    padding: 15px;
+    font-size: 25px;
+    padding: 5px;
 }
 
 #saved-movies {
@@ -121,6 +158,7 @@ a:hover {
     color: black;
 }
 
+
 .btn {
  background-color: gold;
  color: black;
@@ -129,9 +167,35 @@ a:hover {
  font-size: 15px;
  cursor: pointer;
  margin-left: 15px;
-
-}
+} 
 
 #saved-movies-container {
     text-align: center;
+}
+
+.movie-recommendation {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    clear: left;
+    text-align: center;
+    width: 200px;
+}
+
+.movie-recommendation img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.movie-recommendation p {
+    margin: 0;
+    font-size: 14px;
+}
+
+hr {
+    color: white;
+    margin-top: 20px;
 }
