@@ -1,8 +1,8 @@
+//Assign Variables
 var submitBtn = document.querySelector("#submit");
 var userInput = document.querySelector(".user-input");
 var searchResults = document.querySelector("#search-results");
 var apiKey = "7dcb739e08380e5cd93a62e4c16f8444";
-
 var movieTitle = document.querySelector("#movie-title");
 var movieDescription = document.querySelector("#movie-description");
 var cast = document.querySelector("#featured-actors");
@@ -13,6 +13,7 @@ var saveBtn = document.querySelector(".save-btn");
 var stream = document.querySelector("#streaming");
 var logoContainer = document.querySelector("#logo-container");
 
+//Function that handles the form submit
 function handleFormSubmit(event) {
     event.preventDefault()
     var movie = userInput.value
@@ -22,6 +23,7 @@ function handleFormSubmit(event) {
 
 }
 
+//Function that fetches movie data by movie ID from API 
 function getMovieInfo(movie) {
     var queryUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + movie;
     fetch(queryUrl)
@@ -47,6 +49,7 @@ function getMovieInfo(movie) {
 
 }
 
+//Function that fetches movie poster, title and description from API
 function getMovieById(event) {
     var newRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "?api_key=" + apiKey;
     fetch(newRequestUrl)
@@ -62,7 +65,8 @@ function getMovieById(event) {
             saveBtn.setAttribute("data-title", data.original_title);
 
         })
-
+    
+    //Third fetch request that grabs data on movie cast and director 
     var thirdRequestUrl = "https://api.themoviedb.org/3/movie/" + event.target.dataset.id + "/credits?api_key=" + apiKey;
     fetch(thirdRequestUrl)
         .then(function (response) {
@@ -81,7 +85,7 @@ function getMovieById(event) {
             saveBtn.style.display = "block"
         })
 
-
+    //Function that fetches data on where movie is available to stream 
     var streamingRequestUrl = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?rapidapi-key=bbb3c888f8msha5c250ac1598f71p1990c0jsnf2d16e685939&term=" + event.target.textContent;
     fetch(streamingRequestUrl)
         .then(function (response) {
@@ -103,21 +107,17 @@ function getMovieById(event) {
                 logoContainer.appendChild(link);
             }
 
-          
-            // Activity 10 Module 5 for removing things from a list
-
         })
 
     console.log(event.target)
 }
 
+//Saves list of movies to local storage
 function saveToStorage() {
     var title = saveBtn.getAttribute("data-title")
     var savedMovies = JSON.parse(localStorage.getItem("movie")) || []
     savedMovies.push(title)
     localStorage.setItem("movie", JSON.stringify(savedMovies))
-
-
 
     console.log(title);
 }
@@ -126,6 +126,7 @@ function clearSearch() {
     userInput.value = ""
 }
 
+//Event listeners for button clicks
 saveBtn.addEventListener("click", saveToStorage);
 submitBtn.addEventListener("click", handleFormSubmit);
 submitBtn.addEventListener("click", clearSearch);

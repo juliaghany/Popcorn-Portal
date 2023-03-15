@@ -1,8 +1,9 @@
-
+//Assign variables
 var showMovies = document.querySelector("#show-movies");
 var clearBtn = document.querySelector("#clear-movies")
 var clearOrReturn = document.querySelector("#clear-or-return")
 
+//Loads movies saved to local storage
 function loadStorage() {
     showMovies.innerHTML = ""
     var savedMovies = JSON.parse(localStorage.getItem("movie"))
@@ -22,7 +23,7 @@ function loadStorage() {
         
         }
     }
-
+//Event listener for remove button
 showMovies.addEventListener("click", function(event) {
     if (event.target.matches("button")) {
         var index = event.target.dataset.index;
@@ -33,9 +34,7 @@ showMovies.addEventListener("click", function(event) {
     }
 });
 
-
-
-
+//Event listener for clear button 
 clearOrReturn.addEventListener("click", function (event) {
     var target = event.target
     if (target.matches(".clear-btn")) {
