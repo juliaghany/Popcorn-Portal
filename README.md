@@ -1,5 +1,10 @@
 # Popcorn Portal
 
+![Popcorn Portal Homepage 1](assets/images/Popcorn-Portal-Homepage1.png)
+![Popcorn Portal Homepage 2](assets/images/Popcorn-Portal-Homepage-2.png)
+![Popcorn Portal Homepage 3](assets/images/Popcorn-Portal-Homepage3.png)
+![Saved Movies Page](assets/images/Saved-Movies-Page.png)
+
 ## Description
 
 Our motivation for this project was to create an application that assists a user in finding a movie they would like to watch by providing them with details about a movie they search up to inform their decision. The application will present the user with basic information on a searched movie such as the title, a movie poster, a general description, featured actors, and the director's name. Additionally, the application will also have the functionality to suggest similar movies to the user based on their search, provide direct links to streaming platforms where the movie can be watched, and the option to save a movie to a "Saved Movies" list. 
@@ -15,32 +20,24 @@ Through working on this project and building out this application, we were able 
 To use this application, you will first go to the deployed page here: 'link to deployed application'
 
 From there, you will enter the name of a movie you're interest in watching or learning more about into the search bar, once you click the "Search" button or hit enter, you will be presented with a list of movies that match your search below the search bar. 
-![Search Results](assets/images/screenshot.png)
 
 When you click on your desired movie from the list of search results, the application will present you with details on the movie such as a title, movie poster, movie description, featured actors, and the director name. 
-![Movie Details](assets/images/screenshot.png)
 
-If you scroll down to the bottom of the page, you'll see logo images of streaming platforms. Clicking on these images will take you directly to the platform where you can stream your desired movie. 
-![Streaming Platform Logos](assets/images/screenshot.png)
-![Streaming Platform Example](assets/images/screenshot.png)
+If you scroll down, you'll see logo images of streaming platforms below your selected movie. Clicking on these streaming platofrm logos will take you directly to the platform where you can stream your desired movie. 
 
 Right beneath the movie poster, you'll see a "Save For Later" button. Clicking on this button will save your movie to a list of your saved movies. 
-![Save Movie Button](assets/images/screenshot.png)
+
+If you scroll down to the bottom of the page, you'll see a 'Recommended Movies' section, which recommends movies based on your search result. 
 
 At the top of the deployed application, right below the header, you can click on "Your Saved Movies". 
-![Your Saved Movies Button](assets/images/screenshot.png)
 
 Clicking on "Your Saved Movies" will take you to a page of all the movies you've saved. 
-![Your Saved Movies Page](assets/images/screenshot.png)
 
 On the right of each saved movie title, you'll see a "Remove" button, clicking on this button will remove this movie from your saved movie list. 
-![Remove Button](assets/images/screenshot.png)
 
 Below the header of the 'Your Saved Movies' page, you'll see a "Clear Saved Movies" button, clicking this button clears all your saved movies. 
-![Clear Caved Movies Button](assets/images/screenshot.png)
 
 To the left of the "Clear Saved Movies" button, you'll see a "Go Back" button, clicking on the button will allow you to go pack to the homepga e of the deployed application. 
-![Go Back Button](assets/images/screenshot.png)
 
 ## Credits
 
@@ -50,6 +47,12 @@ Zach Berger: https://github.com/berman619
 
 Nastacia Shershova: https://github.com/snastacia 
 
+Request URLs were fetched from the following APIs:
+https://developers.themoviedb.org/3/movies/get-movie-credits
+https://developers.themoviedb.org/3/getting-started/search-and-query-for-details
+https://developers.themoviedb.org/3/movies/get-movie-recommendations 
+https://rapidapi.com/utelly/api/utelly 
+
 
 ## License
 
@@ -57,7 +60,10 @@ N/A
 
 ## Features
 
--Search engine that fetches the results of movie titles. 
--Save button that saves a list of movies to your local storage and then displays them in a separate page. 
--Functionality to suggest similar movies to your selected search result. 
--Linked streaming platforms for each selected search result, which when clicked on takes you directly to the platform where you desired movie is streaming. 
+Search engine that fetches the results of movie titles. 
+
+Save button that saves a list of movies to your local storage and then displays them in a separate page. 
+
+Functionality to recommend movies based on your search. 
+
+Linked streaming platforms for each selected search result, which when clicked on takes you directly to the platform where you desired movie is streaming. 
