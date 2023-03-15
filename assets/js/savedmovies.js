@@ -36,8 +36,8 @@ showMovies.addEventListener("click", function (event) {
 
 clearOrReturn.addEventListener("click", function (event) {
     var target = event.target
-    if (target.matches(".clear-btn")) {
-        localStorage.clear()
+    if (target.matches("button")) {
+        localStorage.clear();
         showMovies.innerHTML = ""
     }
 }
