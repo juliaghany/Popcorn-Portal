@@ -1,6 +1,11 @@
+
+//Assign variables
+
 var showMovies = document.querySelector("#show-movies");
 var clearBtn = document.querySelector("#clear-movies")
 var clearOrReturn = document.querySelector("#clear-or-return")
+
+//Loads movie titles saved to local storage
 
 function loadStorage() {
     showMovies.innerHTML = ""
@@ -33,6 +38,9 @@ showMovies.addEventListener("click", function (event) {
         loadStorage();
     }
 });
+
+
+//Event listener for clear button 
 
 clearOrReturn.addEventListener("click", function (event) {
     var target = event.target
