@@ -6,25 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@300&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
     <title>Your Saved Movies</title>
 </head>
 
 <body>
     <header>
+        <!-- set font-weight in HTML because it was set to bold otherwise -->
         <h1 style="font-weight: 400">Your Saved Movies</h1>
     </header>
-    <div id="saved-movies-container">
+    <div style="text-align: center;">
         <!-- contains the "go back" button which takes user back to the home page, and clear button that clears saved movie titles-->
         <div id="clear-or-return">
-                <a href="index.html"><button class="btn">Go Back</button></a>
-                
-                <button id="clear-movies" class="clear-btn btn">Clear Saved Movies</button>
-                
+                <a href="index.html"><button class="clear-back-btn">Go Back</button></a>
+                <button id="clear-movies" class="clear-btn clear-back-btn">Clear Saved Movies</button>
             </div>
             <div>
-                <!-- lists the stored movies -->
                 <ul id="show-movies"></ul>
+                <!-- list of stored movie titles added here using js -->
             </div>
             </div>
       
