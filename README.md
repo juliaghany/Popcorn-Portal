@@ -3,7 +3,7 @@
 https://juliaghany.github.io/Popcorn-Portal/
 
 ![Alt text](assets/images/homepage.png)
-![Alt text](assets/images/Saved-Movies-Page.png)
+![Alt text](assets/images/saved-movies-page.png)
 
 ## Description
 
