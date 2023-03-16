@@ -1,9 +1,9 @@
 # Popcorn Portal
 
-![Popcorn Portal Homepage 1](assets/images/Popcorn-Portal-Homepage1.png)
-![Popcorn Portal Homepage 2](assets/images/Popcorn-Portal-Homepage-2.png)
-![Popcorn Portal Homepage 3](assets/images/Popcorn-Portal-Homepage3.png)
-![Saved Movies Page](assets/images/Saved-Movies-Page.png)
+https://juliaghany.github.io/Popcorn-Portal/
+
+![Alt text](assets/images/homepage.png)
+![Alt text](assets/images/Saved-Movies-Page.png)
 
 ## Description
 
@@ -53,6 +53,12 @@ https://developers.themoviedb.org/3/getting-started/search-and-query-for-details
 https://developers.themoviedb.org/3/movies/get-movie-recommendations 
 https://rapidapi.com/utelly/api/utelly 
 
+Enrique helped us figure out how to use data attributes to store the movie ID in the search result buttons so that we could pass that data to additional API calls to TMDB. 
+
+Andrew, the substitute TA, helped us figure out how to load local storage onto the "Your Saved Movies" page. 
+
+We referenced this website to find the director's name for each movie using the find() method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
 
 ## License
 
@@ -66,4 +72,4 @@ Save button that saves a list of movies to your local storage and then displays 
 
 Functionality to recommend movies based on your search. 
 
-Linked streaming platforms for each selected search result, which when clicked on takes you directly to the platform where you desired movie is streaming. 
+Linked streaming platforms for each selected search result, which when clicked on takes you directly to the platform where your desired movie is streaming. 
